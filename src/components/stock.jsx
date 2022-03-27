@@ -5,7 +5,7 @@ class Stock extends Component {
     return (
       <button
         type="button"
-        className="btn btn-outline-primary btn-lg m-4"
+        className="btn btn-outline-success "
         onClick={() => this.props.onFluctuate()}
       >
         Stock Price

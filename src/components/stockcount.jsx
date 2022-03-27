@@ -17,7 +17,7 @@ class StockCount extends Component {
   }
 
   getButtonClasses() {
-    let classes = "btn ";
+    let classes = "btn m-2";
     if (this.props.stockCount <= 0) {
       classes += " btn-secondary";
     } else classes += " btn-success";

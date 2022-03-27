@@ -1,9 +1,9 @@
-import logo from "./wsb.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import React, { Component, useState, useEffect } from "react";
 import "./App.css";
 import { changePrice, formatDollar } from "./functions.js";
+import { Container, Row, Col } from "react-bootstrap";
 import Button from "./components/button";
 import NavBar from "./components/navbar";
 import NetWorth from "./components/networth";
@@ -112,18 +112,21 @@ class App extends Component {
     return (
       <React.Fragment>
         <NavBar />
-        <div className="col-centered">
-          <NetWorth netWorth={this.state.netWorth} />
-          <Cash cash={this.state.cash} />
-          <Stock price={this.state.price} onFluctuate={this.handleFluctuate} />
-        </div>
-        <div>
+
+        <Container fluid="md">
+          <Row className="justify-content-center">
+            <Col className="col-5"><NetWorth netWorth={this.state.netWorth} />
+                <Cash cash={this.state.cash} />
+                <Stock price={this.state.price} onFluctuate={this.handleFluctuate} />
+                </Col>
+                
+          </Row>
+        </Container>
+
           <Graph
             series={this.state.stockGraph.series}
             netSeries={this.state.netWorthGraph.series}
           />
-        </div>
-        <div>
           <Button
             onBuy={this.handleBuy}
             onSell={this.handleSell}
@@ -133,13 +136,10 @@ class App extends Component {
             cash={this.state.cash}
             stockPrice={this.state.price}
           />
-        </div>
       </React.Fragment>
     );
   }
 }
 
 export default App;
-//        labels: this.props.priceHistory.map((price) => 0),
-//        StockGraph graph={this.state.stockGraph} /
-//<Graph graph={this.state.stockGraph} data={this.state.history}/>
+

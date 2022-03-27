@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+
 import StockGraph from "./stockgraph";
 import NetWorthGraph from "./networthgraph";
 import "../App.css";
@@ -190,15 +192,25 @@ class Graph extends Component {
 
   render() {
     return (
-      <div className="rowC col-centered">
-        <StockGraph
-          options={this.state.stockGraph.options}
-          series={this.props.series}
-        />
-        <NetWorthGraph
-          options={this.state.netWorthGraph.options}
-          series={this.props.netSeries}
-        />
+
+      <div >
+
+
+
+        <Container>
+          <Row className="justify-content-center">
+            <Col ><StockGraph
+              options={this.state.stockGraph.options}
+              series={this.props.series}
+            /></Col>
+            <Col ><NetWorthGraph
+              options={this.state.netWorthGraph.options}
+              series={this.props.netSeries}
+            /></Col>
+          </Row>
+
+        </Container>
+
       </div>
     );
   }
